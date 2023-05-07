@@ -24,3 +24,8 @@ cp path/to/my_module.c my_module.c
 ```
 make -j 3
 ```
+### Создание диска
+```
+qemu-img create -f qcow2 disk.img 10G
+```
+
