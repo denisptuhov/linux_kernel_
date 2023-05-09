@@ -26,6 +26,15 @@ make -j 3
 ```
 ### Создание диска
 ```
-qemu-img create -f qcow2 disk.img 10G
+sudo apt-get install dracut
+sudo dracut -f -v initramfs-$(uname -r).img $(uname -r)
 ```
+### Загрузка ядра на диск
+```
+qemu-system-x86_64 -kernel path/to/bzImage -initrd path/to/disk.img -append "root=/dev/sda3"
+```
+**sda3** - раздел жесткого диска, который будет использоваться в качестве корневой системы (возможно будет другой)
 
+**disk.img** - initramfs-образ, созданный при помощи предыдущей команды, его имя - initramfs-$(uname -r).img
+
+**bzImage** - образ ядра, сформированный ранее, обычно располагается по относительному пути из исходной директории ядра /arch/x86/boot/bzImage
