@@ -33,7 +33,7 @@ sudo dracut -f -v initramfs-$(uname -r).img $(uname -r)
 ```
 qemu-system-x86_64 -kernel path/to/bzImage -initrd path/to/disk.img -append "root=/dev/sda3"
 ```
-**sda3** - раздел жесткого диска, который будет использоваться в качестве корневой системы (возможно будет другой)
+**sda3** - раздел жесткого диска, который будет использоваться в качестве корневой системы (возможно, будет другой)
 
 **disk.img** - initramfs-образ, созданный при помощи предыдущей команды, его имя - initramfs-$(uname -r).img
 
